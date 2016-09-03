@@ -116,6 +116,6 @@ class BanditTenArmedRandomStochastic(BanditEnv):
         r_dist = []
 
         for i in range(bandits):
-            r_dist.append([np.random.uniform()*10+5, np.random.uniform()])
+            r_dist.append([np.random.uniform(), np.random.uniform()])
 
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)

@@ -1,6 +1,5 @@
 from gym.envs.registration import register
 from gym.scoreboard.registration import add_task, add_group
-from .package_info import USERNAME
 
 from .bandit import BanditTenArmedRandomFixed
 from .bandit import BanditTenArmedRandomRandom
@@ -26,8 +25,8 @@ for env in envs:
     env_name = env.keys()[0]
 
     register(
-        id='{}_{}-v0'.format(USERNAME, env_name),
-        entry_point='{}_gym_bandits:{}'.format(USERNAME, env_name),
+        id='{}-v0'.format(env_name),
+        entry_point='gym_bandits:{}'.format(env_name),
         timestep_limit=1,
         nondeterministic=True,
     )
@@ -45,7 +44,7 @@ for env in envs:
     description = env.values()[0]
 
     add_task(
-        id='{}_{}-v0'.format(USERNAME, env_name),
+        id='{}-v0'.format(env_name),
         group='bandits',
         summary='{}'.format(description),
     )
