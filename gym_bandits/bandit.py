@@ -119,3 +119,22 @@ class BanditTenArmedRandomStochastic(BanditEnv):
             r_dist.append([np.random.uniform(), np.random.uniform()])
 
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
+
+
+class BanditTenArmedGaussian(BanditEnv):
+    """
+    10 armed bandit mentioned on page 30 of Sutton and Barto's
+    [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0)
+
+    Actions always pay out
+    Mean of payout is pulled from a normal distribution (0, 1) (called q*(a))
+    Actual reward is drawn from a normal distribution (q*(a), 1)
+    """
+    def __init__(self, bandits=10):
+        p_dist = np.full(bandits, 1)
+        r_dist = []
+
+        for i in range(bandits):
+            r_dist.append([np.random.normal(0, 1), 1])
+
+        BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)

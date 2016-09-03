@@ -4,6 +4,7 @@ from gym.scoreboard.registration import add_task, add_group
 from .bandit import BanditTenArmedRandomFixed
 from .bandit import BanditTenArmedRandomRandom
 from .bandit import BanditTenArmedRandomStochastic
+from .bandit import BanditTenArmedGaussian
 from .bandit import BanditTwoArmedDeterministicFixed
 from .bandit import BanditTwoArmedHighHighFixed
 from .bandit import BanditTwoArmedHighLowFixed
@@ -15,6 +16,7 @@ from .bandit import BanditTwoArmedLowLowFixed
 envs = [{'BanditTenArmedRandomFixed': ["10 armed bandit with random probabilities assigned to payouts"]},
         {'BanditTenArmedRandomRandom': ["10 armed bandit with random probabilities assigned to both payouts and rewards"]},
         {'BanditTenArmedRandomStochastic': ["10 armed bandit with random probabilities assigned to payouts, and reward are selected from a distribution"]},
+        {'BanditTenArmedGaussian': ["10 armed bandit mentioned on page 30 of Sutton and Barto's [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0)"]},
         {'BanditTwoArmedDeterministicFixed': ["Simplest case where one bandit always pays, and the other always doesn't"]},
         {'BanditTwoArmedHighHighFixed': ["Stochastic version with a small difference between which bandit pays where both are good"]},
         {'BanditTwoArmedHighLowFixed': ["Stochastic version with a large difference between which bandit pays out of two choices"]},

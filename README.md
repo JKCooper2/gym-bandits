@@ -23,6 +23,7 @@ your weights against the true values for plotting results of various algorithms
 * BanditTenArmedRandomFixed-v0: 10 armed bandit with random probabilities assigned to payouts
 * BanditTenArmedRandomRandom-v0: 10 armed bandit with random probabilities assigned to both payouts and rewards
 * BanditTenArmedRandomStochastic-v0: 10 armed bandit with random probabilities assigned to payouts, and reward are selected from a different normal distribution for each action
+* BanditTenArmedGaussian-v0: 10 armed bandit mentioned on page 30 of [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0) (Sutton and Barto)
 
 ### Installation
 ```
