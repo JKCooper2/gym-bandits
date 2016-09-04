@@ -17,12 +17,10 @@ your weights against the true values for plotting results of various algorithms
 ### Environments
 * BanditTwoArmedDeterministicFixed-v0: Simplest case where one bandit always pays, and the other always doesn't
 * BanditTwoArmedHighLowFixed-v0: Stochastic version with a large difference between which bandit pays out of two choices
-* BanditTwoArmedHighLowFixedNegative-v0: Stochastic version where one bandit pays out negative with a large percent
 * BanditTwoArmedHighHighFixed-v0: Stochastic version with a small difference between which bandit pays where both are good
 * BanditTwoArmedLowLowFixed-v0: Stochastic version with a small difference between which bandit pays where both are bad
 * BanditTenArmedRandomFixed-v0: 10 armed bandit with random probabilities assigned to payouts
 * BanditTenArmedRandomRandom-v0: 10 armed bandit with random probabilities assigned to both payouts and rewards
-* BanditTenArmedRandomStochastic-v0: 10 armed bandit with random probabilities assigned to payouts, and reward are selected from a different normal distribution for each action
 * BanditTenArmedGaussian-v0: 10 armed bandit mentioned on page 30 of [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0) (Sutton and Barto)
 
 ### Installation

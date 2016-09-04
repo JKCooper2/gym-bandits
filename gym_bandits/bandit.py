@@ -84,12 +84,6 @@ class BanditTwoArmedLowLowFixed(BanditEnv):
         BanditEnv.__init__(self, p_dist=[0.1, 0.2], r_dist=[1, 1])
 
 
-class BanditTwoArmedHighLowFixedNegative(BanditEnv):
-    """Stochastic version where one bandit pays out negative with a large percent"""
-    def __init__(self):
-        BanditEnv.__init__(self, p_dist=[0.7, 0.2], r_dist=[-1, 1])
-
-
 class BanditTenArmedRandomFixed(BanditEnv):
     """10 armed bandit with random probabilities assigned to payouts"""
     def __init__(self, bandits=10):
@@ -103,21 +97,6 @@ class BanditTenArmedRandomRandom(BanditEnv):
     def __init__(self, bandits=10):
         p_dist = np.random.uniform(size=bandits)
         r_dist = np.random.uniform(size=bandits)
-        BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
-
-
-class BanditTenArmedRandomStochastic(BanditEnv):
-    """
-    10 armed bandit with random probabilities assigned to payouts, and reward are
-    selected from a distribution
-    """
-    def __init__(self, bandits=10):
-        p_dist = np.random.uniform(size=bandits)
-        r_dist = []
-
-        for i in range(bandits):
-            r_dist.append([np.random.uniform(), np.random.uniform()])
-
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
 
 
