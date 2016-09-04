@@ -33,5 +33,5 @@ pip install -e .
 In your gym environment
 ```
 import gym_bandits
-env = gym.make("BanditTenArmedRandomStochastic-v0") # Replace with relevant env
+env = gym.make("BanditTenArmedGaussian-v0") # Replace with relevant env
 ```
