@@ -134,6 +134,25 @@ add_task(
     background=""
 )
 
+add_task(
+    id='BanditTenArmedUniformDistributedReward-v0',
+    group='bandits',
+    experimental=True,
+    contributor='jkcooper2',
+    summary="10 armed bandit with that always pays out with a reward selected from a uniform distribution",
+    description="""
+        Each bandit takes in a probability distribution, which is the likelihood of the action paying out,
+        and a reward distribution, which is the value or distribution of what the agent will be rewarded
+        the bandit does payout.
+
+        p_dist = numpy.full(bandits, 1)
+        r_dist = numpy.random.uniform(size=10)
+
+        Bandits always pay out. Reward is selected from uniform distribution
+        """,
+    background="Based on comparisons from http://sudeepraja.github.io/Bandits/"
+)
+
 
 
 

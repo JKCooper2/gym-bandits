@@ -92,6 +92,14 @@ class BanditTenArmedRandomFixed(BanditEnv):
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
 
 
+class BanditTenArmedUniformDistributedReward(BanditEnv):
+    """10 armed bandit with that always pays out with a reward selected from a uniform distribution"""
+    def __init__(self, bandits=10):
+        p_dist = np.full(bandits, 1)
+        r_dist = np.random.uniform(size=bandits)
+        BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
+
+
 class BanditTenArmedRandomRandom(BanditEnv):
     """10 armed bandit with random probabilities assigned to both payouts and rewards"""
     def __init__(self, bandits=10):
