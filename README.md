@@ -15,24 +15,31 @@ your weights against the true values for plotting results of various algorithms
 
 
 ### Environments
-* BanditTwoArmedDeterministicFixed-v0: Simplest case where one bandit always pays, and the other always doesn't
-* BanditTwoArmedHighLowFixed-v0: Stochastic version with a large difference between which bandit pays out of two choices
-* BanditTwoArmedHighHighFixed-v0: Stochastic version with a small difference between which bandit pays where both are good
-* BanditTwoArmedLowLowFixed-v0: Stochastic version with a small difference between which bandit pays where both are bad
-* BanditTenArmedRandomFixed-v0: 10 armed bandit with random probabilities assigned to payouts
-* BanditTenArmedRandomRandom-v0: 10 armed bandit with random probabilities assigned to both payouts and rewards
-* BanditTenArmedUniformDistributedReward-v0: 10 armed bandit with that always pays out with a reward selected from a uniform distribution
-* BanditTenArmedGaussian-v0: 10 armed bandit mentioned on page 30 of [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0) (Sutton and Barto)
+* `BanditTwoArmedDeterministicFixed-v0`: Simplest case where one bandit always pays, and the other always doesn't
+* `BanditTwoArmedHighLowFixed-v0`: Stochastic version with a large difference between which bandit pays out of two choices
+* `BanditTwoArmedHighHighFixed-v0`: Stochastic version with a small difference between which bandit pays where both are good
+* `BanditTwoArmedLowLowFixed-v0`: Stochastic version with a small difference between which bandit pays where both are bad
+* `BanditTenArmedRandomFixed-v0`: 10 armed bandit with random probabilities assigned to payouts
+* `BanditTenArmedRandomRandom-v0`: 10 armed bandit with random probabilities assigned to both payouts and rewards
+* `BanditTenArmedUniformDistributedReward-v0`: 10 armed bandit with that always pays out with a reward selected from a uniform distribution
+* `BanditTenArmedGaussian-v0`: 10 armed bandit mentioned on page 30 of [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0) (Sutton and Barto)
 
 ### Installation
-```
+```bash
 git clone git@github.com:JKCooper2/gym-bandits.git
 cd gym-bandits
-pip install -e .
+pip install .
 ```
 
-In your gym environment
+To install using `requirements.txt` or `environment.yml` call:
+
 ```
+git+https://github.com/JKCooper2/gym-bandits#egg=gym-bandits
+```
+
+
+In your gym environment
+```python
 import gym_bandits
 env = gym.make("BanditTenArmedGaussian-v0") # Replace with relevant env
 ```
