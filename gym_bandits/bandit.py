@@ -39,7 +39,7 @@ class BanditEnv(gym.Env):
         self.np_random, seed = seeding.np_random(seed)
         return [seed]
 
-    def _step(self, action):
+    def step(self, action):
         assert self.action_space.contains(action)
 
         reward = 0
@@ -53,7 +53,7 @@ class BanditEnv(gym.Env):
 
         return 0, reward, done, {}
 
-    def _reset(self):
+    def reset(self):
         return 0
 
     def _render(self, mode='human', close=False):
