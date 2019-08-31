@@ -121,7 +121,7 @@ class BanditTenArmedGaussian(BanditEnv):
         p_dist = np.full(bandits, 1)
         r_dist = []
 
-        for i in range(bandits):
+        for _ in range(bandits):
             r_dist.append([np.random.normal(0, 1), 1])
 
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
