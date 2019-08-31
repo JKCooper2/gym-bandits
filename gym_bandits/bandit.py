@@ -56,7 +56,7 @@ class BanditEnv(gym.Env):
     def reset(self):
         return 0
 
-    def _render(self, mode='human', close=False):
+    def render(self, mode='human', close=False):
         pass
 
 
