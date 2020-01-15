@@ -137,7 +137,7 @@ class BanditTenArmedNonstationaryConstantGaussian(BanditEnv):
     Mean of payout is pulled from a normal distribution (0, 1) (called q*(a))
     Actual reward is drawn from a normal distribution (q*(a), 1)
     """
-    def __init__(self, step_size, bandits=10):
+    def __init__(self, step_size=0.01, bandits=10):
         p_dist = np.full(bandits, 1)
         r_dist = []
 
@@ -147,11 +147,16 @@ class BanditTenArmedNonstationaryConstantGaussian(BanditEnv):
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
 
         def updateDistributions(stepFunc):
-            self.stepFunc()
-            for arm in self.r_dist:
-                if np.random.random_sample() < 0.5:
-                    arm[0] += step_size
-                else:
-                    arm[0] -= step_size
+            def wrapper(action, *args, **kwargs):
+                results = stepFunc(action, *args, **kwargs)
+                for arm in self.r_dist:
+                    if np.random.random_sample() < 0.5:
+                        arm[0] += step_size
+                    else:
+                        arm[0] -= step_size
 
-        self.step = updateDistributions
+                return results
+            
+            return wrapper
+
+        self.step = updateDistributions(self.step)
