@@ -125,3 +125,33 @@ class BanditTenArmedGaussian(BanditEnv):
             r_dist.append([np.random.normal(0, 1), 1])
 
         BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
+
+
+class BanditTenArmedNonstationaryConstantGaussian(BanditEnv):
+    """
+    10 armed bandit mentioned on page 33 of Sutton and Barto's
+    [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0)
+
+    After every step q*(a) is moved by an independent amount (step_size)
+    Actions always pay out
+    Mean of payout is pulled from a normal distribution (0, 1) (called q*(a))
+    Actual reward is drawn from a normal distribution (q*(a), 1)
+    """
+    def __init__(self, step_size, bandits=10):
+        p_dist = np.full(bandits, 1)
+        r_dist = []
+
+        for _ in range(bandits):
+            r_dist.append([np.random.normal(0, 1), 1])
+
+        BanditEnv.__init__(self, p_dist=p_dist, r_dist=r_dist)
+
+        def updateDistributions(stepFunc):
+            self.stepFunc()
+            for arm in self.r_dist:
+                if np.random.random_sample() < 0.5:
+                    arm[0] += step_size
+                else:
+                    arm[0] -= step_size
+
+        self.step = updateDistributions
