@@ -97,6 +97,28 @@ add_task(
 )
 
 add_task(
+    id='BanditTenArmedNonstationaryConstantGaussian-v0',
+    group='bandits',
+    experimental=True,
+    contributor='MouseAndKeyboard',
+    summary="10 armed bandit with reward based on a Gaussian distribution with the distribution for each arm changing by a constant amount over time",
+    description="""
+    Each bandit takes in a probability distribution, which is the likelihood of the action paying out,
+    and a reward distribution, which is the value or distribution of what the agent will be rewarded
+    the bandit does payout.
+
+    p_dist = [1] (* 10)
+    r_dist = [numpy.random.normal(0, 1), 1] (* 10)
+
+    After every step the reward mean for each arm is moved by an independent amount (step_size)
+    Every bandit always pays out
+    Each action has a reward mean (selected from a normal distribution with mean 0 and std 1), and the actual
+    reward returns is selected with a std of 1 around the selected mean
+    """,
+    background="Described on page 33 of Sutton and Barto's [Reinforcement Learning: An Introduction](https://www.dropbox.com/s/b3psxv2r0ccmf80/book2015oct.pdf?dl=0)"
+)
+
+add_task(
     id='BanditTenArmedRandomRandom-v0',
     group='bandits',
     experimental=True,
