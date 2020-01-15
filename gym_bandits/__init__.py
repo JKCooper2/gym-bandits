@@ -8,6 +8,7 @@ from .bandit import BanditTwoArmedDeterministicFixed
 from .bandit import BanditTwoArmedHighHighFixed
 from .bandit import BanditTwoArmedHighLowFixed
 from .bandit import BanditTwoArmedLowLowFixed
+from .bandit import BanditTenArmedNonstationaryConstantGaussian
 
 environments = [['BanditTenArmedRandomFixed', 'v0'],
                 ['BanditTenArmedRandomRandom', 'v0'],
@@ -16,7 +17,8 @@ environments = [['BanditTenArmedRandomFixed', 'v0'],
                 ['BanditTwoArmedDeterministicFixed', 'v0'],
                 ['BanditTwoArmedHighHighFixed', 'v0'],
                 ['BanditTwoArmedHighLowFixed', 'v0'],
-                ['BanditTwoArmedLowLowFixed', 'v0']]
+                ['BanditTwoArmedLowLowFixed', 'v0'],
+                ['BanditTenArmedNonstationaryConstantGaussian', 'v0']]
 
 for environment in environments:
     register(
