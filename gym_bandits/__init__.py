@@ -8,6 +8,7 @@ from .bandit import BanditTwoArmedDeterministicFixed
 from .bandit import BanditTwoArmedHighHighFixed
 from .bandit import BanditTwoArmedHighLowFixed
 from .bandit import BanditTwoArmedLowLowFixed
+from .bandit import BanditTenArmedNonstationaryConstantGaussian
 
 environments = [['BanditTenArmedRandomFixed', 'v0'],
                 ['BanditTenArmedRandomRandom', 'v0'],
