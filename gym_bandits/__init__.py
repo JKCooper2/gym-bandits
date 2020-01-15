@@ -16,7 +16,8 @@ environments = [['BanditTenArmedRandomFixed', 'v0'],
                 ['BanditTwoArmedDeterministicFixed', 'v0'],
                 ['BanditTwoArmedHighHighFixed', 'v0'],
                 ['BanditTwoArmedHighLowFixed', 'v0'],
-                ['BanditTwoArmedLowLowFixed', 'v0']]
+                ['BanditTwoArmedLowLowFixed', 'v0'],
+                ['BanditTenArmedNonstationaryConstantGaussian', 'v0']]
 
 for environment in environments:
     register(
